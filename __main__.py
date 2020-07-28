@@ -6,11 +6,12 @@ def get_request(title):
     """Return the data for a request with title title"""
     session = requests.Session()
     URL = "https://en.wikipedia.org/w/api.php"
+    PAGE_LIMIT = 500
     PARAMS = {
         "action": "query",
         "prop": "linkshere",
         "titles": title,
-        "lhlimit": 500,
+        "lhlimit": PAGE_LIMIT,
         "format": "json"
     }
     request = session.get(url=URL, params=PARAMS)
